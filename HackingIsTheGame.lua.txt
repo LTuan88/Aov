@@ -1,0 +1,9 @@
+
+HackingIsTheGame=1
+if tostring(gg.VERSION)~="101.1" then
+    gg.alert(" \nGG v101.1 Required\n ","EXIT",nil,"APEX[GG]V2")
+    print("Game Guardian v101.1 Required")
+    gg.setVisible(true) 
+    os.exit() 
+    return
+end 
