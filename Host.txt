@@ -15,12 +15,11 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ff02::3 ip6-allhosts
 
-127.0.0.1 dl.listdl.com
-127.0.0.1 itop.kg.garena.vn
+
 127.0.0.1 cloud2.gsdk.proximabeta.com
-127.0.0.1 bugly-aos.cros.garena.com
+
 127.0.0.1 download.2.1945015797.kgvn.gcloud.garena.vn
-127.0.0.1 h.trace.qq.com
-127.0.0.1 oth.str.mdt.qq.com
+
+
 127.0.0.1 cloud.vmp.onezapp.com
 127.0.0.1 cloudctrl.gcloudsdk.com
