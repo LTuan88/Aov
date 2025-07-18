@@ -15,7 +15,7 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ff02::3 ip6-allhosts
 
-
+127.0.0.1 intlsdk.iegg.garena.com
 127.0.0.1 cloud2.gsdk.proximabeta.com
 127.0.0.1 download.2.1945015797.kgvn.gcloud.garena.vn
 127.0.0.1 cloud.vmp.onezapp.com
