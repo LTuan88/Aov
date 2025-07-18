@@ -1,0 +1,779 @@
+-- VAL to ARM Converter 
+
+UPDATED="14-MAR-2025" 
+gg.setVisible(false) 
+apex=0
+line="-------------------------------------------------------"
+xTAGx="APEX[GG]v2"
+xMOTOx="Hacking is the Game"
+xLINKx="https://t.me/apexgg2Home"
+xLUAx="[VALtoARM]-v07-Converter..." 
+print(line)
+print(xTAGx)
+print(xMOTOx) 
+print(xLINKx) 
+print(xLUAx)
+print(line)
+---------------------------------------------------------------------
+gg.require("101.1") 
+v=gg.getTargetInfo()
+
+    if v==nil then 
+        print("×× ERROR ××\nINVALID PROCESS SELECTED OR NO ROOT ACCESS")
+        gg.setVisible(true) 
+        os.exit()
+        fuckshit() 
+        return
+    end 
+
+vprocess=v.processName
+vlabel=v.label
+vversion=v.versionName
+if v.x64 then vbit="x64" else vbit="x32" end
+---------------------------------------------------------------------
+
+secondmethod=0
+allocpage=nil 
+local choose=gg.choice({
+	"[ √ ] Allocate Page",
+	"[ × ] Allocate Page",
+	"<--EXIT"},0,xTAGx.."\n"..xLUAx.."\nUpdated on "..UPDATED) 
+	if choose==3 then 
+	    gg.setVisible(true) 
+	    os.exit()
+	    return
+	end
+	if choose==1 then 
+        allocpage=gg.allocatePage(7)
+    end 
+            if allocpage==nil or #(tostring(allocpage))==0 or type(allocpage)~="number" then
+                print("×× ERROR ××\nFailed to Allocate New Page") 
+                print("( "..tostring(allocpage).." )") 
+                print(line) 
+                y={} 
+                gg.toast("Please Wait...") 
+                gg.clearResults()
+                gg.setRanges(gg.REGION_CODE_APP) 
+                gg.searchNumber("0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0::77",4) 
+                    if gg.getResultsCount()==0 then
+                    print(line) 
+                    print("×× ERROR ××\nAlternate Method Failed")
+                    print(line) 
+                    gg.setVisible(true) 
+                    os.exit() 
+                    fuckshit()
+                    return
+                   end 
+                allocpage=gg.getResults(1,10) 
+                allocpage=allocpage[1].address 
+                gg.getResults(gg.getResultsCount())
+                gg.clearResults() 
+                print("Alternate Method Successful")
+                print(line)  
+        else
+            print("Allocate New Page Successful")
+            print(line) 
+        end 
+gg.setVisible(false)  
+AP={} o=0
+INTX={}
+INTX[1]={}
+INTX[1].address=allocpage
+INTX[1].flags=4
+INTX=gg.getValues(INTX) 
+FLOATX={} 
+FLOATX[1]={}
+FLOATX[1].address=allocpage
+FLOATX[1].flags=16
+FLOATX=gg.getValues(FLOATX) 
+DOUBLEX={} 
+DOUBLEX[1]={}
+DOUBLEX[1].address=allocpage
+DOUBLEX[1].flags=64
+DOUBLEX=gg.getValues(DOUBLEX) 
+QWORDX={} 
+QWORDX[1]={}
+QWORDX[1].address=allocpage
+QWORDX[1].flags=32
+QWORDX=gg.getValues(QWORDX)  
+    for i = 1,4 do 
+    AP[i]={}
+    AP[i].address=allocpage+o
+    AP[i].flags=2
+    o=o+2
+    end
+AP=gg.getValues(AP) 
+o=nil o=24
+EDIT={}
+    for i = 1,7 do
+    EDIT[i]={}
+    EDIT[i].address=allocpage+o
+    EDIT[i].flags=4
+    o=o+4 
+    end
+EDIT=gg.getValues(EDIT)   
+
+--██████████████████████
+--██████████████████████
+--██████████████████████
+
+hello=gg.alert(xTAGx.."\n"..xLINKx.."\n[VALtoARM]-v05...\n\n- Updated on "..UPDATED.."\n- Use on any Process\n- Select any Bit\n- Enter any Valid Value\n- Select Value Type\n- Copy ARM HEX Options\n- Script Prints All History","<START>",nil,"[ EXIT ]")
+    if hello==3 then print("GOODBYE") gg.setVisible(true) os.exit() return end 
+ 
+cset="{ H }" 
+xset=1 
+function menu()
+clear() 
+apex=1
+gg.toast(xTAGx) 
+xBITCH=0
+bitchoice=gg.choice({
+	"x32 bit ARM",
+	"x64 bit ARM",
+	"Settings = "..cset,
+	"[ EXIT ]"},0,xTAGx.."\n"..xLINKx.."\n[VALtoARM]-v07-Converter..\n\n<<[ SELECT BIT ]>>")
+	if bitchoice==nil then gg.toast("CANCELLED") return end
+	if bitchoice==4 then print("GOODBYE") gg.setVisible(true) os.exit() return end 
+	if bitchoice==1 then xBITCH=32 end
+	if bitchoice==2 then xBITCH=64 end 
+	if bitchoice==3 then xSETTINGS() return end 
+	
+	if xBITCH==64 then 
+        xEND="hC0035FD6"
+        xMOVKX0="h000080F2" 
+        xMOVKX016="h0000A0F2"  
+        xMOVKX032="h0000C0F2"  
+        xMOVKX048="h0000E0F2" 
+        xMOVZX048="h0000E0D2" 
+        xMOVW0="h00008052"  
+        xMOVKW0="h00008072"   
+        xMOVKW016="h0000A072"
+        xMOVX0="h000080D2"
+        xFMOVS0W0="1E270000h" 
+        xFMOVD0X0="h0000679E"
+        xMOVZX0="h000080D2"
+    else
+        xEND="h1EFF2FE1"
+    end 
+
+menu2()
+end
+
+--██████████████████████
+
+function menu2()
+    for i, v in ipairs(EDIT) do
+        v.value=0
+    end
+    gg.setValues(EDIT) 
+CPY=nil CPY={}
+p=gg.prompt({
+	"ENTER VALUE  (Must be within range)",
+	"BOOL TRUE / 1",
+	"BOOL FALSE / 0",
+	"INT / DWORD",
+	"FLOAT (int equivalent)",
+	"FLOAT (real registers)", 
+	"DOUBLE",
+	"LONG / QWORD",
+	"<< BACK",
+	"[ EXIT ]"},nil, 
+    {[1]="number",
+    [2]="checkbox",
+    [3]="checkbox",
+    [4]="checkbox",
+    [5]="checkbox",
+    [6]="checkbox",
+    [7]="checkbox",
+    [8]="checkbox",
+    [9]="checkbox",
+    [10]="checkbox"})
+
+    if p==nil then gg.toast("CANCELLED") return end 
+    if p[9] then menu() return end 
+    if p[10] then print("GOODBYE") gg.setVisible(true) os.exit() return end 
+
+    if p[2] then xBOOLT() return end
+    if p[3] then xBOOLF() return end    
+    
+    if #(p[1])==0 then gg.toast("No Value Entered") menu2() return end 
+    if type(tonumber(p[1]))~="number" then gg.toast("Invalid Value") menu2() return end 
+    mcEV=tonumber(p[1])
+    mcTS=tostring(p[1]) 
+    if p[4] then xINT() return end
+    if p[5] then FLOATE() return end 
+    if p[6] then xFLOAT() return end
+    if p[7] then xDOUBLE() return end 
+    if p[8] then xQWORD() return end 
+
+gg.toast("No Value Type Selected")
+menu2()
+return
+end 
+
+--██████████████████████
+--██████████████████████    
+
+function xBOOLT()
+TYPE="BOOL TRUE / 1"
+VALUE="1" 
+    if xBITCH==64 then
+        CPY[1]="h200080D2"
+        CPY[2]=xEND 
+    else
+        CPY[1]="h0100A0E3"
+        CPY[2]=xEND 
+    end
+xCOPY() 
+end 
+
+--██████████████████████
+
+function xBOOLF()
+TYPE="BOOL FALSE / 0"
+VALUE="0" 
+    if xBITCH==64 then 
+        CPY[1]="h000080D2"
+        CPY[2]=xEND
+    else
+        CPY[1]="h0000A0E3"
+        CPY[2]=xEND
+    end
+xCOPY() 
+end 
+
+--██████████████████████
+
+function xINT()
+    if mcEV==0 then xBOOLF() return end 
+    if mcEV==1 then xBOOLT() return end 
+
+BITCHASS=nil BITCHASS=mcTS
+clear() wait() 
+INTX[1].value=mcEV
+gg.setValues(INTX) 
+CHECK=gg.getValues(INTX) 
+CHECK=nil 
+CHECK=gg.getValues(INTX) 
+    if CHECK[1].value ~= mcEV or tostring(CHECK[1].value) == "inf" or tostring(CHECK[1].value) == "NaN" then
+        gg.toast("×× ERROR ××") 
+        gg.alert("×× ERROR ××\n"..BITCHASS.."\nInvalid Number for Value Type","MENU",nil,xTAGx) 
+        menu2() return
+    end 
+gg.loadResults(AP) 
+GET=gg.getResults(4) 
+clear() 
+HEX=nil HEX={}
+
+    if xBITCH==64 then 
+        for i ,v in ipairs(GET) do
+            if GET[i].value<0 then 
+                HEX[i]="-0x"..string.format("%X",tostring(GET[i].value*(-1)))
+            else
+                HEX[i]="0x"..string.format("%X",tostring(GET[i].value))
+            end 
+        end  -- for loop 
+
+        x1="~A8 MOV W0, #"..tostring(HEX[1]) 
+        if tostring(HEX[1])=="0x0" then x1=xMOVW0 end
+        if tonumber(HEX[1])==-1 then x1="~A8 MOV W0, #0xFFFF" end
+        
+        x2="~A8 MOVK W0, #"..tostring(HEX[2])..", LSL #16" 
+        if tostring(HEX[2])=="0x0" then x2=xMOVKW016 end 
+              
+    else -- if 64
+        
+        if GET[1].value<0 then xx1=65536+GET[1].value else xx1=GET[1].value end
+        if GET[2].value<0 then xx2=65536+GET[2].value else xx2=GET[2].value end
+        
+        x1="~A MOVW R0, #"..xx1
+        x2="~A MOVT R0, #"..xx2 
+    
+    end -- if 32 
+    
+EDIT[1].value=x1
+EDIT[2].value=x2
+EDIT[3].value=xEND
+gg.setValues(EDIT) 
+xcheck=nil
+xcheck=gg.getValues(EDIT) 
+    for i = 1,3 do 
+        if v.value==0 then
+            gg.alert("×× ERROR ××\nGameGuardian did not make any edits.\nReload Script and Select [×] Allocate Page\nIf Error Continues Try on Another Process","EXIT",nil,xTAGx) 
+            print("×× ERROR ××\nGameGuardian did not make any edits.\nReload Script and select [×] Allocate Page\nIf Error Continues Try on Another Process")
+            gg.setVisible(true) 
+            os.exit()
+            return
+        end
+    end 
+xcheck=nil 
+xEDITx=nil xEDITx=gg.getValues(EDIT) 
+    for i = 1,3 do
+        bs=string.sub(tostring(string.format("%X",tonumber(xEDITx[i].value))),-8,-1)
+    CPY[i]="'"..bs.."h'" 
+   end 
+TYPE="INT / DWORD"
+VALUE=tonumber(INTX[1].value) 
+xCOPY()
+end     
+
+--██████████████████████
+
+function FLOATE()
+BITCHASS=nil BITCHASS=tsEV 
+clear() wait() 
+FLOATX[1].value=mcEV
+gg.setValues(FLOATX) 
+CHECK=nil 
+CHECK=gg.getValues(FLOATX) 
+    if tostring(CHECK[1].value) == "inf" or tostring(CHECK[1].value) == "NaN" then
+        gg.toast("×× ERROR ××") 
+        gg.alert("×× ERROR ××\n"..BITCHASS.."\nInvalid Number for Value Type","MENU",nil,xTAGx) 
+        menu() return
+    end 
+gg.loadResults(AP) 
+GET=gg.getResults(4) 
+HEX={}
+
+    if v.x64 then 
+        for i ,v in ipairs(GET) do
+            if GET[i].value<0 then 
+                HEX[i]="-0x"..string.format("%X",tostring(GET[i].value*(-1)))
+            else
+                HEX[i]="0x"..string.format("%X",tostring(GET[i].value))
+            end 
+        end -- for loop 
+
+        x1="~A8 MOV W0, #"..tostring(HEX[1]) 
+        if tostring(HEX[1])=="0x0" then x1=xMOVW0 end
+        if tonumber(HEX[1])==-1 then x1="~A8 MOV W0, #0xFFFF" end
+        
+        x2="~A8 MOVK W0, #"..tostring(HEX[2])..", LSL #16" 
+        if tostring(HEX[2])=="0x0" then x2=xMOVKW016 end 
+                
+    else -- if 64
+
+        if GET[1].value<0 then xx1=65536+GET[1].value else xx1=GET[1].value end
+        if GET[2].value<0 then xx2=65536+GET[2].value else xx2=GET[2].value end
+        
+        x1="~A MOVW R0, #"..xx1
+        x2="~A MOVT R0, #"..xx2 
+    
+    end -- if 32 
+
+EDIT[1].value=x1
+EDIT[2].value=x2
+EDIT[3].value=xEND
+gg.setValues(EDIT) 
+xcheck=nil
+xcheck=gg.getValues(EDIT) 
+    for i = 1,3 do
+        if v.value==0 then
+            gg.alert("×× ERROR ××\nGameGuardian did not make any edits.\nReload Script and Select [×] Allocate Page\nIf Error Continues Try on Another Process","EXIT",nil,xTAGx) 
+            print("×× ERROR ××\nGameGuardian did not make any edits.\nReload Script and select [×] Allocate Page\nIf Error Continues Try on Another Process")
+            gg.setVisible(true) 
+            os.exit()
+            return
+        end
+    end 
+xcheck=nil 
+xEDITx=nil xEDITx=gg.getValues(EDIT) 
+    for i = 1,3 do
+        bs=string.sub(tostring(string.format("%X",tonumber(xEDITx[i].value))),-8,-1)
+    CPY[i]="'"..bs.."h'" 
+   end 
+TYPE="FLOAT (int equivalent)"
+VALUE=tonumber(FLOATX[1].value) 
+xCOPY()
+end     
+
+--██████████████████████
+
+function xFLOAT()
+BITCHASS=nil BITCHASS=mcTS 
+clear() wait() 
+FLOATX[1].value=mcEV
+gg.setValues(FLOATX) 
+CHECK=nil 
+CHECK=gg.getValues(FLOATX) 
+    if tostring(CHECK[1].value) == "inf" or tostring(CHECK[1].value) == "NaN" then
+        gg.toast("×× ERROR ××") 
+        gg.alert("×× ERROR ××\n"..BITCHASS.."\nInvalid Number for Value Type","MENU",nil,xTAGx) 
+        menu() return
+    end 
+gg.loadResults(AP) 
+GET=gg.getResults(4) 
+clear() 
+HEX=nil HEX={}
+
+    if xBITCH==64 then 
+        for i ,v in ipairs(GET) do
+            if GET[i].value<0 then 
+                HEX[i]="-0x"..string.format("%X",tostring(GET[i].value*(-1)))
+            else
+                HEX[i]="0x"..string.format("%X",tostring(GET[i].value))
+            end 
+        end 
+
+        x1="~A8 MOV W0, #"..tostring(HEX[1]) 
+        if tostring(HEX[1])=="0x0" then x1=xMOVW0 end 
+        if tonumber(HEX[1])==-1 then x1="~A8 MOV W0, #FFFF0000" end 
+        
+        x2="~A8 MOVK W0, #"..tostring(HEX[2])..", LSL #16"
+        if tostring(HEX[2])=="0x0" then x2=xMOVKW016 end  
+        
+        x3=xFMOVS0W0 
+        x4=xEND 
+        
+    else -- if 64
+
+        if GET[1].value<0 then xx1=65536+GET[1].value else xx1=GET[1].value end
+        if GET[2].value<0 then xx2=65536+GET[2].value else xx2=GET[2].value end
+        
+        x1="~A MOVW R0, #"..xx1
+        x2="~A MOVT R0, #"..xx2 
+        x3="~A VMOV S15, R0" 
+        x4="~A VMOV.F32 S0, S15" 
+    
+    end -- if 32
+
+EDIT[1].value=x1
+EDIT[2].value=x2
+EDIT[3].value=x3
+EDIT[4].value=x4
+    if xBITCH==32 then
+    EDIT[5].value=xEND
+    end
+gg.setValues(EDIT) 
+xcheck=nil
+xcheck=gg.getValues(EDIT) 
+    for i = 1,3 do
+        if v.value==0 then
+            gg.alert("×× ERROR ××\nGameGuardian did not make any edits.\nReload Script and Select [×] Allocate Page\nIf Error Continues Try on Another Process","EXIT",nil,xTAGx) 
+            print("×× ERROR ××\nGameGuardian did not make any edits.\nReload Script and select [×] Allocate Page\nIf Error Continues Try on Another Process")
+            gg.setVisible(true) 
+            os.exit()
+            return
+        end
+    end 
+xcheck=nil 
+xEDITx=nil xEDITx=gg.getValues(EDIT) 
+    if xBITCH==64 then tl=4 else tl=5 end 
+    
+    for i = 1,tl do
+        bs=string.sub(tostring(string.format("%X",tonumber(xEDITx[i].value))),-8,-1)
+    CPY[i]="'"..bs.."h'" 
+   end 
+TYPE="FLOAT"
+VALUE=tonumber(FLOATX[1].value) 
+xCOPY()
+end     
+    
+--██████████████████████
+
+function xDOUBLE()
+BITCHASS=nil BITCHASS=mcTS 
+clear() wait() 
+DOUBLEX[1].value=mcEV
+gg.setValues(DOUBLEX) 
+CHECK=nil 
+CHECK=gg.getValues(DOUBLEX) 
+    if tostring(CHECK[1].value) == "inf" or tostring(CHECK[1].value) == "NaN" then
+        gg.toast("×× ERROR ××") 
+        gg.alert("×× ERROR ××\n"..BITCHASS.."\nInvalid Number for Value Type","MENU",nil,xTAGx) 
+        menu() return
+    end 
+gg.loadResults(AP) 
+GET=gg.getResults(4) 
+clear() 
+HEX=nil HEX={}
+
+    if xBITCH==64 then 
+        for i ,v in ipairs(GET) do
+            if GET[i].value<0 then 
+                HEX[i]="-0x"..string.format("%X",tostring(GET[i].value*(-1)))
+            else
+                HEX[i]="0x"..string.format("%X",tostring(GET[i].value))
+            end 
+        end 
+
+        if tonumber(HEX[1])==-1 then HEX[1]="0xFFFF" end 
+        x1="~A8 MOVK X0, #"..tostring(HEX[1])
+        if tostring(HEX[1])=="0x0" then x1=xMOVKX0 end 
+        
+        if tonumber(HEX[2])==-1 then HEX[2]="0xFFFF" end 
+        x2="~A8 MOVK X0, #"..tostring(HEX[2])..", LSL #16"
+        if tostring(HEX[2])=="0x0" then x2=xMOVKX016 end 
+        
+        if tonumber(HEX[3])==-1 then HEX[3]="0xFFFF" end 
+        x3="~A8 MOVK X0, #"..tostring(HEX[3])..", LSL #32"
+        if tostring(HEX[3])=="0x0" then x3=xMOVKX032 end 
+        
+        if tonumber(HEX[4])==-1 then HEX[4]="0xFFFF" end 
+        x4="~A8 MOVK X0, #"..tostring(HEX[4])..", LSL #48"
+        if tostring(HEX[4])=="0x0" then x4=xMOVKX048 end 
+        
+        x5=xFMOVD0X0 
+        x6=xEND 
+    else -- if 64
+        
+        if GET[1].value<0 then xx1=65536+GET[1].value else xx1=GET[1].value end
+        if GET[2].value<0 then xx2=65536+GET[2].value else xx2=GET[2].value end
+        if GET[3].value<0 then xx3=65536+GET[3].value else xx3=GET[3].value end
+        if GET[4].value<0 then xx4=65536+GET[4].value else xx4=GET[4].value end
+        
+        x1="~A MOVW R0, #"..xx1
+        x2="~A MOVT R0, #"..xx2 
+        x3="~A MOVW R1, #"..xx3
+        x4="~A MOVT R1, #"..xx4
+        x5="~A VMOV D16, R0, R1"
+        x6="~A VMOV.F64 D0, D16"
+    
+    end -- if 32 
+
+EDIT[1].value=x1
+EDIT[2].value=x2
+EDIT[3].value=x3
+EDIT[4].value=x4
+EDIT[5].value=x5
+EDIT[6].value=x6
+    if xBITCH==32 then
+    EDIT[7].value=xEND
+    end
+gg.setValues(EDIT) 
+xcheck=nil
+xcheck=gg.getValues(EDIT) 
+    for i = 1,3 do
+        if v.value==0 then
+            gg.alert("×× ERROR ××\nGameGuardian did not make any edits.\nReload Script and Select [×] Allocate Page\nIf Error Continues Try on Another Process","EXIT",nil,xTAGx) 
+            print("×× ERROR ××\nGameGuardian did not make any edits.\nReload Script and select [×] Allocate Page\nIf Error Continues Try on Another Process")
+            gg.setVisible(true) 
+            os.exit()
+            return
+        end
+    end 
+xcheck=nil 
+xEDITx=nil xEDITx=gg.getValues(EDIT) 
+    if xBITCH==64 then tl=6 else tl=7 end 
+    
+    for i = 1,tl do
+        bs=string.sub(tostring(string.format("%X",tonumber(xEDITx[i].value))),-8,-1)
+    CPY[i]="'"..bs.."h'" 
+   end 
+TYPE="DOUBLE"
+VALUE=tonumber(DOUBLEX[1].value) 
+xCOPY()
+end     
+
+--██████████████████████
+
+function xQWORD()
+    if mcEV==0 then xBOOLF() return end 
+    if mcEV==1 then xBOOLT() return end 
+BITCHASS=nil BITCHASS=mcTS
+clear() wait() 
+QWORDX[1].value=mcEV
+gg.setValues(QWORDX) 
+CHECK=nil 
+CHECK=gg.getValues(QWORDX) 
+    if CHECK[1].value ~= mcEV or tostring(CHECK[1].value) == "inf" or tostring(CHECK[1].value) == "NaN" then
+        gg.toast("×× ERROR ××") 
+        gg.alert("×× ERROR ××\n"..BITCHASS.."\nInvalid Number for Value Type","MENU",nil,xTAGx) 
+        menu() return
+    end 
+gg.loadResults(AP) 
+GET=nil GET=gg.getResults(4) 
+clear() 
+HEX=nil HEX={}
+
+    if xBITCH==64 then 
+        for i ,v in ipairs(GET) do
+            if GET[i].value<0 then 
+                HEX[i]="-0x"..string.format("%X",tostring(GET[i].value*(-1)))
+            else
+                HEX[i]="0x"..string.format("%X",tostring(GET[i].value))
+            end 
+        end 
+
+        if tonumber(HEX[1])==-1 then HEX[1]="0xFFFF" end
+        x1="~A8 MOVK X0, #"..tostring(HEX[1])
+        if tostring(HEX[1])=="0x0" then x1=xMOVKX0  end 
+    
+        if tonumber(HEX[2])==-1 then HEX[2]="0xFFFF" end 	
+        x2="~A8 MOVK X0, #"..tostring(HEX[2])..", LSL #16" 
+        if tostring(HEX[2])=="0x0" then x2=xMOVKX016 end 
+    
+        if tonumber(HEX[3])==-1 then HEX[3]="0xFFFF" end 	
+        x3="~A8 MOVK X0, #"..tostring(HEX[3])..", LSL #32" 
+        if tostring(HEX[3])=="0x0" then x3=xMOVKX032 end 
+    
+        if tonumber(HEX[4])==-1 then HEX[4]="0xFFFF" end 	
+        x4="~A8 MOVK X0, #"..tostring(HEX[4])..", LSL #48" 
+        if tostring(HEX[4])=="0x0" then x4=xMOVKX048 end 
+    
+        x5=xEND 
+        
+    else -- if 64
+
+        if GET[1].value<0 then xx1=65536+GET[1].value else xx1=GET[1].value end
+        if GET[2].value<0 then xx2=65536+GET[2].value else xx2=GET[2].value end
+        if GET[3].value<0 then xx3=65536+GET[3].value else xx3=GET[3].value end
+        if GET[4].value<0 then xx4=65536+GET[4].value else xx4=GET[4].value end
+        
+        x1="~A MOVW R0, #"..xx1
+        x2="~A MOVT R0, #"..xx2 
+        x3="~A MOVW R1, #"..xx3
+        x4="~A MOVT R1, #"..xx4
+        x5="~A VMOV D0, R0, R1"
+    end  -- if 32
+
+EDIT[1].value=x1
+EDIT[2].value=x2
+EDIT[3].value=x3
+EDIT[4].value=x4
+EDIT[5].value=x5
+    if xBITCH==32 then
+    EDIT[6].value=xEND
+    end
+gg.setValues(EDIT) 
+xcheck=nil
+xcheck=gg.getValues(EDIT) 
+    for i = 1,3 do
+        if v.value==0 then
+            gg.alert("×× ERROR ××\nGameGuardian did not make any edits.\nReload Script and Select [×] Allocate Page\nIf Error Continues Try on Another Process","EXIT",nil,xTAGx) 
+            print("×× ERROR ××\nGameGuardian did not make any edits.\nReload Script and select [×] Allocate Page\nIf Error Continues Try on Another Process")
+            gg.setVisible(true) 
+            os.exit()
+            return
+        end
+    end 
+xcheck=nil 
+xEDITx=nil xEDITx=gg.getValues(EDIT) 
+    if xBITCH==64 then tl=5 else tl=6 end 
+    
+    for i = 1,tl do
+        bs=string.sub(tostring(string.format("%X",tonumber(xEDITx[i].value))),-8,-1)
+    CPY[i]="'"..bs.."h'" 
+   end 
+TYPE="LONG / QWORD"
+VALUE=tonumber(QWORDX[1].value) 
+xCOPY()
+end     
+
+--██████████████████████
+--██████████████████████
+
+function xSETTINGS()
+mys=gg.choice({
+	"Horizontal { }",
+	"Horizontal 'Text', ",
+	"Horizontal Text",
+	"Vertical { }",
+	"Vertical 'Text', ",
+	"Vertical Text", 
+	"< View Examples >"},0,"APEX[GG]v2\nSelect Copy Method")
+	if mys==nil then menu() return end
+	if mys==1 then xset=1 cset="{ H }" end
+	if mys==2 then xset=2 cset="H 'text'," end 
+	if mys==3 then xset=3 cset="H text" end
+	if mys==4 then xset=4 cset="{ V }" end 
+	if mys==5 then xset=5 cset="V 'text'," end 
+	if mys==6 then xset=6 cset="V text" end 
+	if mys==7 then 
+gg.alert([[Horizontal { }
+x={'ABCD1234h','4321DCBAh'} 
+
+Horizontal 'text', 
+'ABCD1234h','4321DCBAh'
+
+Horizontal text
+ABCD1234h 4321DCBAh
+
+Vertical { }
+x={
+	'ABCD1234h',
+	'4321DBCAh'
+	}
+	
+Vertical 'text', 
+'ABCS1234h', 
+'4321DBCAh'
+
+Vertical text
+ABCD1234h
+4321DBCAh]],"OK",nil,"APEX[GG]V2")
+xSETTINGS()
+return
+end 
+menu() 
+end -- xSETTINGS 
+
+--██████████████████████
+
+function xCOPY()
+gg.toast(xTAGx) 
+clear() xCPY=nil 
+    if xset==1 then 
+        xCPY=table.concat(CPY,",")
+        xCPY="x={"..xCPY.."}" 
+    end
+    if xset==2 then
+        xCPY=tostring(table.concat(CPY,","))
+    end
+    if xset==3 then 
+        xCPY=table.concat(CPY," ")
+        xCPY=string.gsub(tostring(xCPY),"'","")
+        xCPY=string.gsub(tostring(xCPY),","," ")
+    end
+    if xset==4 then
+        xCPY=table.concat(CPY,",\n")
+        xCPY="x={\n"..xCPY.."\n}" 
+    end
+    if xset==5 then 
+        xCPY=tostring(table.concat(CPY,",\n"))
+    end
+    if xset==6 then
+        xCPY=table.concat(CPY,"\n")
+        xCPY=string.gsub(tostring(xCPY),"'","")
+    end
+    
+CPY=table.concat(CPY,"\n")
+VALUEx=tostring(string.gsub(tostring(VALUE),"E","e"))
+print("BIT = x"..xBITCH) 
+print("TYPE = "..TYPE) 
+print("VALUE = "..VALUEx) 
+print(" ") 
+print(CPY) 
+print(line) 
+copy=gg.alert("Bit = x"..xBITCH.."\nType = "..TYPE.."\nValue = "..VALUEx.."\n\n"..tostring(CPY),"COPY","MENU",cset) 
+    if copy==1 then gg.copyText(tostring(xCPY),false)  gg.toast("Copied:\n"..xCPY) return end
+    if copy==2 then menu() return end 
+end
+
+--██████████████████████
+--██████████████████████
+function clear()
+gg.getResults(gg.getResultsCount())
+gg.clearResults()
+end
+------------------------------------------------------------------------------  
+function cancel()
+gg.toast("CANCELLED")
+end 
+------------------------------------------------------------------------------  
+function wait()
+gg.toast("Please Wait..") 
+end 
+------------------------------------------------------------------------------  
+function error()
+gg.toast("× ERROR ×")
+gg.sleep(1000)
+end 
+--██████████████████████
+--██████████████████████
+while true do
+    if gg.isVisible() or apex==0 then
+        gg.setVisible(false) apex=1
+        menu()
+    end
+end 
